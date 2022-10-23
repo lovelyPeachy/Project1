@@ -81,6 +81,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Label^ label18;
 
 
 	protected:
@@ -127,6 +128,7 @@ namespace Project1 {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -136,7 +138,7 @@ namespace Project1 {
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
@@ -399,6 +401,15 @@ namespace Project1 {
 			this->groupBox4->TabStop = false;
 			this->groupBox4->Text = L"Система уравнений (n)";
 			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(51, 135);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(77, 16);
+			this->label17->TabIndex = 14;
+			this->label17->Text = L"Результат";
+			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
@@ -446,6 +457,7 @@ namespace Project1 {
 			// 
 			// groupBox5
 			// 
+			this->groupBox5->Controls->Add(this->label18);
 			this->groupBox5->Controls->Add(this->label15);
 			this->groupBox5->Controls->Add(this->label14);
 			this->groupBox5->Controls->Add(this->label13);
@@ -483,14 +495,13 @@ namespace Project1 {
 			this->label13->TabIndex = 15;
 			this->label13->Text = L"l=max-min=";
 			// 
-			// label17
+			// label18
 			// 
-			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(51, 135);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(77, 16);
-			this->label17->TabIndex = 14;
-			this->label17->Text = L"Результат";
+			this->label18->Location = System::Drawing::Point(82, 18);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(97, 17);
+			this->label18->TabIndex = 14;
+			this->label18->Text = L"Результат";
 			// 
 			// MyForm1
 			// 
@@ -553,9 +564,11 @@ namespace Project1 {
 
 		//Cистема уравнений в кнопке
 
-		label17->Text = System::Convert::ToString(system());\
+		label17->Text = System::Convert::ToString(system());
 		
-		// 
+		// Массив из 100 эл max-min в кномпке
+
+		label18->Text = System::Convert::ToString(diffArr());
 	}
 
 		   //Кнопка "очистить"
@@ -696,33 +709,31 @@ namespace Project1 {
 
 //Разность между max и min элементами массива 100 эл
 
-		   double rasnost() {
+		   double diffArr() {
 
 			   srand(time(NULL));
 			   const int N = 100;
-			   int  massiv[N];
+			   int  arr[N];
 
-
-			   for (int i = 0; i < N; i++)
-			   {
-				   massiv[i] = 1 + rand() % 150;
+			   for (int i = 0; i < N; i++) {
+				   arr[i] = 1 + rand() % 150;
 			   }
 
 			   int max = 0, min = 0;
-			   max = massiv[0];
-			   min = massiv[0];
-			   for (int i = 0; i < N; i++)
-			   {
-				   if (massiv[i] < min) 
-					   min = massiv[i];
-				   if (massiv[i] > max)
-					   max = massiv[i];
+			   max = arr[0];
+			   min = arr[0];
+
+			   for (int i = 0; i < N; i++) {
+				   if (arr[i] < min)
+					   min = arr[i];
+				   if (arr[i] > max)
+					   max = arr[i];
 			   }
 
-			   int paznoctb;
-			   paznoctb = max - min;
+			   int difference;
+			   difference = max - min;
 
-			   return paznoctb;
+			   return difference;
 		   }
 
 		   // add help
