@@ -696,7 +696,7 @@ namespace Project1 {
 
 //Разность между max и min элементами массива 100 эл
 
-		   double array() {
+		   double rasnost() {
 
 			   srand(time(NULL));
 			   const int N = 100;
