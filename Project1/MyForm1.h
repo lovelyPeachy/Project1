@@ -82,6 +82,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Label^ label17;
 	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::Label^ label19;
 
 
 	protected:
@@ -135,10 +136,11 @@ namespace Project1 {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
+			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
@@ -342,6 +344,7 @@ namespace Project1 {
 			// 
 			// groupBox3
 			// 
+			this->groupBox3->Controls->Add(this->label19);
 			this->groupBox3->Controls->Add(this->label7);
 			this->groupBox3->Controls->Add(this->label6);
 			this->groupBox3->Controls->Add(this->comboBox2);
@@ -468,6 +471,14 @@ namespace Project1 {
 			this->groupBox5->TabStop = false;
 			this->groupBox5->Text = L"Массив из 100 элементов (l)";
 			// 
+			// label18
+			// 
+			this->label18->Location = System::Drawing::Point(82, 18);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(97, 17);
+			this->label18->TabIndex = 14;
+			this->label18->Text = L"Результат";
+			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
@@ -495,13 +506,13 @@ namespace Project1 {
 			this->label13->TabIndex = 15;
 			this->label13->Text = L"l=max-min=";
 			// 
-			// label18
+			// label19
 			// 
-			this->label18->Location = System::Drawing::Point(82, 18);
-			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(97, 17);
-			this->label18->TabIndex = 14;
-			this->label18->Text = L"Результат";
+			this->label19->Location = System::Drawing::Point(33, 84);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(97, 17);
+			this->label19->TabIndex = 14;
+			this->label19->Text = L"Результат";
 			// 
 			// MyForm1
 			// 
@@ -539,12 +550,12 @@ namespace Project1 {
 
 		}
 
-		//Кнопка "выход"
+//Кнопка "выход"
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
 
-		   //Кнопка "вычислить"
+ //Кнопка "вычислить"
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		double result;
 
@@ -569,9 +580,13 @@ namespace Project1 {
 		// Массив из 100 эл max-min в кномпке
 
 		label18->Text = System::Convert::ToString(diffArr());
+
+		// Интеграл
+
+		label19->Text = System::Convert::ToString(integr());
 	}
 
-		   //Кнопка "очистить"
+//Кнопка "очистить"
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		textBox1->Clear();
 		textBox2->Clear();
@@ -619,7 +634,22 @@ namespace Project1 {
 
 //Интегралы 
 
+		   float f(float x)
+		   {
+			   return x * pow(2, 3 * x);
+		   }
+		   float F(float x)
+		   {
+			   return x * pow(8, x) / (3 * log(2)) - pow(8, x) / (9 * pow(log(2), 2));
+		   }
 
+		   double integr() {
+
+			   float h, a = 1, b = 4, Integral;
+			   Integral = F(b) - F(a);
+
+			   return (Integral);
+		   }
 
 //Cистема уравнений 
 
@@ -735,7 +765,5 @@ namespace Project1 {
 
 			   return difference;
 		   }
-
-		   // add help
-};
+	};
 }
