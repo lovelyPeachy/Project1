@@ -634,11 +634,11 @@ namespace Project1 {
 
 //Интегралы 
 
-		   float f(float x)
+		   float f1(float x)
 		   {
 			   return x * pow(2, 3 * x);
 		   }
-		   float F(float x)
+		   float F1(float x)
 		   {
 			   return x * pow(8, x) / (3 * log(2)) - pow(8, x) / (9 * pow(log(2), 2));
 		   }
@@ -646,7 +646,7 @@ namespace Project1 {
 		   double integr() {
 
 			   float h, a = 1, b = 4, Integral;
-			   Integral = F(b) - F(a);
+			   Integral = F1(b) - F1(a);
 
 			   return (Integral);
 		   }
