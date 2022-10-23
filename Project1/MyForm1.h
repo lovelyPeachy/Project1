@@ -713,7 +713,7 @@ namespace Project1 {
 			   min = massiv[0];
 			   for (int i = 0; i < N; i++)
 			   {
-				   if (massiv[i] < min)
+				   if (massiv[i] < min) 
 					   min = massiv[i];
 				   if (massiv[i] > max)
 					   max = massiv[i];
@@ -722,7 +722,7 @@ namespace Project1 {
 			   int paznoctb;
 			   paznoctb = max - min;
 
-			   return 0;
+			   return paznoctb;
 		   }
 };
 }
