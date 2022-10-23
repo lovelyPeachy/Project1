@@ -706,10 +706,7 @@ namespace Project1 {
 			   for (int i = 0; i < N; i++)
 			   {
 				   massiv[i] = 1 + rand() % 150;
-				   cout << setw(5) << massiv[i];
 			   }
-
-			   cout << endl;
 
 			   int max = 0, min = 0;
 			   max = massiv[0];
@@ -722,16 +719,9 @@ namespace Project1 {
 					   max = massiv[i];
 			   }
 
-			   cout << "Максимальный элемент: " << max;
-			   cout << endl;
-			   cout << "Минимальный элемент: " << min;
-			   cout << endl;
-
 			   int paznoctb;
 			   paznoctb = max - min;
-			   cout << "Разность максимального и минимального элемента : " << paznoctb << endl;
 
-			   system("pause");
 			   return 0;
 		   }
 };
