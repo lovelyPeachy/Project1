@@ -125,6 +125,7 @@ namespace Project1 {
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
@@ -140,7 +141,6 @@ namespace Project1 {
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
@@ -216,9 +216,9 @@ namespace Project1 {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(6, 146);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(75, 16);
+			this->label5->Size = System::Drawing::Size(124, 16);
 			this->label5->TabIndex = 12;
-			this->label5->Text = L"Точность :";
+			this->label5->Text = L"Точность : е=0.001";
 			// 
 			// comboBox1
 			// 
@@ -241,9 +241,9 @@ namespace Project1 {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
 			this->label2->Location = System::Drawing::Point(6, 25);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(124, 20);
+			this->label2->Size = System::Drawing::Size(107, 20);
 			this->label2->TabIndex = 5;
-			this->label2->Text = L"ln(x)-x+1(\?)8=0";
+			this->label2->Text = L"ln(x)-x+1,8=0";
 			// 
 			// label3
 			// 
@@ -355,6 +355,14 @@ namespace Project1 {
 			this->groupBox3->TabIndex = 13;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Интеграл (m)";
+			// 
+			// label19
+			// 
+			this->label19->Location = System::Drawing::Point(33, 84);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(97, 17);
+			this->label19->TabIndex = 14;
+			this->label19->Text = L"Результат";
 			// 
 			// label7
 			// 
@@ -506,14 +514,6 @@ namespace Project1 {
 			this->label13->TabIndex = 15;
 			this->label13->Text = L"l=max-min=";
 			// 
-			// label19
-			// 
-			this->label19->Location = System::Drawing::Point(33, 84);
-			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(97, 17);
-			this->label19->TabIndex = 14;
-			this->label19->Text = L"Результат";
-			// 
 			// MyForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -583,7 +583,7 @@ namespace Project1 {
 
 		// Интеграл
 
-		label19->Text = System::Convert::ToString(integr());
+		label19->Text = System::Convert::ToString(integRectangle());
 	}
 
 //Кнопка "очистить"
@@ -634,21 +634,31 @@ namespace Project1 {
 
 //Интегралы 
 
-		   float f1(float x)
-		   {
+		   float f1(float x) {
 			   return x * pow(2, 3 * x);
 		   }
-		   float F1(float x)
-		   {
+
+		   float F1(float x) {
 			   return x * pow(8, x) / (3 * log(2)) - pow(8, x) / (9 * pow(log(2), 2));
 		   }
 
-		   double integr() {
+		   //М-д прямоугольников
 
-			   float h, a = 1, b = 4, Integral;
-			   Integral = F1(b) - F1(a);
+		   double integRectangle() {
 
-			   return (Integral);
+			   float h, a = 1, b = 4, square;
+			   int partNum = 1000;
+
+			   h = (b - a) / partNum;
+			   square = (f(a) + f(b)) / 2;
+
+			   for (int i = 0; i < partNum - 1; i++)
+			   {
+				   square = square + f(a + i * h);
+			   }
+			   square = square * h;
+
+			   return square;
 		   }
 
 //Cистема уравнений 
