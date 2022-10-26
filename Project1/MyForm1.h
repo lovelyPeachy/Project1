@@ -1,3 +1,4 @@
+#include <windows.h>
 #include <math.h>
 #include <cstdlib>
 #include <iostream>
@@ -295,13 +296,13 @@ namespace Project1 {
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(135, 20);
 			this->radioButton2->TabIndex = 1;
-			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"Реальное время";
 			this->radioButton2->UseVisualStyleBackColor = true;
 			// 
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
+			this->radioButton1->Checked = true;
 			this->radioButton1->Location = System::Drawing::Point(12, 35);
 			this->radioButton1->Name = L"radioButton1";
 			this->radioButton1->Size = System::Drawing::Size(139, 20);
@@ -325,7 +326,9 @@ namespace Project1 {
 			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(21, 11);
 			this->chart1->Name = L"chart1";
+			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::None;
 			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series1->Legend = L"Legend1";
 			series1->Name = L"Series1";
 			this->chart1->Series->Add(series1);
@@ -345,13 +348,12 @@ namespace Project1 {
 			// groupBox3
 			// 
 			this->groupBox3->Controls->Add(this->label19);
-			this->groupBox3->Controls->Add(this->label7);
 			this->groupBox3->Controls->Add(this->label6);
 			this->groupBox3->Controls->Add(this->comboBox2);
 			this->groupBox3->Controls->Add(this->label1);
 			this->groupBox3->Location = System::Drawing::Point(472, 26);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(251, 139);
+			this->groupBox3->Size = System::Drawing::Size(251, 118);
 			this->groupBox3->TabIndex = 13;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Интеграл (m)";
@@ -367,7 +369,7 @@ namespace Project1 {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(6, 111);
+			this->label7->Location = System::Drawing::Point(947, 91);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(161, 16);
 			this->label7->TabIndex = 15;
@@ -387,10 +389,7 @@ namespace Project1 {
 			this->comboBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
-				L"М-д трапеций", L"М-д прямоуголька", L"М-д Симпсона",
-					L"М-д Гаусса"
-			});
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"М-д трапеций", L"М-д прямоуголька", L"М-д Симпсона" });
 			this->comboBox2->Location = System::Drawing::Point(9, 48);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(121, 24);
@@ -402,8 +401,6 @@ namespace Project1 {
 			this->groupBox4->Controls->Add(this->label17);
 			this->groupBox4->Controls->Add(this->label12);
 			this->groupBox4->Controls->Add(this->label11);
-			this->groupBox4->Controls->Add(this->label10);
-			this->groupBox4->Controls->Add(this->label9);
 			this->groupBox4->Controls->Add(this->label8);
 			this->groupBox4->Location = System::Drawing::Point(472, 195);
 			this->groupBox4->Name = L"groupBox4";
@@ -415,7 +412,7 @@ namespace Project1 {
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(51, 135);
+			this->label17->Location = System::Drawing::Point(46, 120);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(77, 16);
 			this->label17->TabIndex = 14;
@@ -424,7 +421,7 @@ namespace Project1 {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(11, 135);
+			this->label12->Location = System::Drawing::Point(6, 120);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(34, 16);
 			this->label12->TabIndex = 15;
@@ -433,7 +430,7 @@ namespace Project1 {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(6, 111);
+			this->label11->Location = System::Drawing::Point(6, 94);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(199, 16);
 			this->label11->TabIndex = 17;
@@ -442,7 +439,7 @@ namespace Project1 {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(93, 86);
+			this->label10->Location = System::Drawing::Point(1031, 195);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(25, 16);
 			this->label10->TabIndex = 16;
@@ -451,7 +448,7 @@ namespace Project1 {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(11, 86);
+			this->label9->Location = System::Drawing::Point(1021, 149);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(23, 16);
 			this->label9->TabIndex = 15;
@@ -520,9 +517,12 @@ namespace Project1 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1148, 658);
 			this->Controls->Add(this->groupBox3);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->groupBox5);
+			this->Controls->Add(this->label10);
 			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label9);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button2);
@@ -557,33 +557,70 @@ namespace Project1 {
 
  //Кнопка "вычислить"
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		double result;
+		float result; // a
 
 		//Нелинейные уравнения в кнопке
-		switch (comboBox1->SelectedIndex)
+
+		if (comboBox1->SelectedIndex == 0)
 		{
-		case 1:
 			result = methodBiss();
-		case 2:
+		}
+		else if (comboBox1->SelectedIndex == 1) {
 			result = methodHord();
-		default:
+		}
+		else if (comboBox1->SelectedIndex == 2) {
+			result = methodIteration();
+		}
+		else if (comboBox1->SelectedIndex == -1) {
 			result = methodBiss();
-			break;
 		}
 
 		label16->Text = System::Convert::ToString(result);
 
 		//Cистема уравнений в кнопке
 
-		label17->Text = System::Convert::ToString(system());
+		float systResult = system(); // n
+
+		label17->Text = System::Convert::ToString(systResult);
 		
 		// Массив из 100 эл max-min в кномпке
 
-		label18->Text = System::Convert::ToString(diffArr());
+		int diffArrResult = diffArr(); // l
 
-		// Интеграл
+		label18->Text = System::Convert::ToString(diffArrResult);
 
-		label19->Text = System::Convert::ToString(integRectangle());
+		// Интегралы
+
+		float integralResult; // m
+
+		if (comboBox2->SelectedIndex == 0)
+		{
+			integralResult = integTrapez();
+		}
+		else if (comboBox2->SelectedIndex == 1) {
+			integralResult = integRectangle();
+		}
+		else if (comboBox2->SelectedIndex == -1) {
+			integralResult = integTrapez();
+		}
+
+		label19->Text = System::Convert::ToString(integralResult);
+
+		// График
+
+		float startTime = 0, endTime = 12;
+
+		for (int time = startTime; time <= endTime; time++)
+		{
+			float y = fabs(result * pow(time, 2) + integralResult * time + systResult + diffArrResult);
+			this->chart1->Series[0]->Points->AddXY(time, y);
+
+			if (radioButton2->Checked)
+			{
+				Sleep(1000);
+				Application::DoEvents();
+			}
+		}
 	}
 
 //Кнопка "очистить"
@@ -600,7 +637,7 @@ namespace Project1 {
 		   }
 
 		   //М-д биссекции
-		   double methodBiss() {
+		   float methodBiss() {
 
 			   float minRange = 2, maxRange = 3, e = 0.001, result;
 
@@ -619,18 +656,36 @@ namespace Project1 {
 		   }
 
 		   //М-д хорд
-		   double methodHord() {
+		   float methodHord() {
 
-			   float minRange = 2, maxRange = 3, e = 0.001, result;
-			   while (fabs(f(minRange)) > e)
-			   {
+			   float minRange = 2, maxRange = 3, e = 0.001;
+			   while (fabs(f(minRange)) > e) {
+
 				   minRange = maxRange - (maxRange - minRange) * f(minRange) / (f(maxRange) - f(minRange));
 			   }
 
 			   return f(minRange);
-
-			   //М-д Ньютона
 		   };
+
+		   //М-д Ньютона
+
+		   //М-д простой итерации
+
+			float methodIteration() {
+
+				float minRange = 2, maxRange = 3, e = 0.001;
+
+				if (1 / minRange < 1) {
+					   do {
+						   minRange = maxRange; 
+						   maxRange = log(minRange) + 1.8;
+
+					   } while (fabs(minRange - maxRange) > e);
+				}
+
+				   return f(minRange);
+			}
+
 
 //Интегралы 
 
@@ -642,23 +697,57 @@ namespace Project1 {
 			   return x * pow(8, x) / (3 * log(2)) - pow(8, x) / (9 * pow(log(2), 2));
 		   }
 
-		   //М-д прямоугольников
-
-		   double integRectangle() {
+		   //М-д трапеций
+		   
+		   float integTrapez() {
 
 			   float h, a = 1, b = 4, square;
 			   int partNum = 1000;
 
 			   h = (b - a) / partNum;
-			   square = (f(a) + f(b)) / 2;
+			   square = (f1(a) + f1(b)) / 2;
 
-			   for (int i = 0; i < partNum - 1; i++)
-			   {
-				   square = square + f(a + i * h);
+			   for (int i = 0; i < partNum - 1; i++) {
+				   square = square + f1(a + i * h);
 			   }
-			   square = square * h;
+			   return square * h;
+		   }
 
-			   return square;
+		   //М-д прямоугольников
+
+		   float integRectangle() {
+
+			   float h, a = 1, b = 4, square;
+			   int partNum = 500;
+
+			   h = (b - a) / partNum;
+			   square = (f1(a) + f1(b)) / 2;
+
+			   for (int i = 0; i < partNum - 1; i++) {
+				   square = square + f1(a + i * h);
+			   }
+			   return square * h;
+		   }
+
+		   //М-д Симпсона
+
+		   float integSimpsona() {
+
+			   float h, a = 1, b = 4, square;
+			   int partNum = 1000, i;
+
+			   h = (b - a) / partNum;
+			   square = f1(a) + f1(b);
+
+			   for (i = 0; i < partNum - 1; i++) {
+
+				   if (i % 2 == 0) {
+					   square = square + 2 * f1(a + i * h);
+				   }
+				   else square = square + 4 * f1(a + i * h);
+			   }
+			   return square * h / 3;
+
 		   }
 
 //Cистема уравнений 
@@ -749,7 +838,7 @@ namespace Project1 {
 
 //Разность между max и min элементами массива 100 эл
 
-		   double diffArr() {
+		   int diffArr() {
 
 			   srand(time(NULL));
 			   const int N = 100;
